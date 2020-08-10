@@ -66,10 +66,12 @@ for i in range(bytesReturned.value // ctypes.sizeof(ctypes.wintypes.DWORD)):
 
 					ctypes.windll.kernel32.CloseHandle(hmodule)
 				else:
-					print("Last Error: {0}".format(ctypes.GetLastError()))
+					#print("Last Error: {0}".format(ctypes.GetLastError()))
+					fail += 1
 					ctypes.windll.kernel32.CloseHandle(hmodule)
 			else:
-				print("Last Error: {0}".format(ctypes.GetLastError()))
+				#print("Last Error: {0}".format(ctypes.GetLastError()))
 				fail += 1
+				ctypes.windll.kernel32.CloseHandle(hmodule)
 
 #print("----------\nSuccess = {0} \nFailed = {1}".format(suc, fail))
