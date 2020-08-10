@@ -52,7 +52,6 @@ for i in range(bytesReturned.value // ctypes.sizeof(ctypes.wintypes.DWORD)):
 			if EnumProcessModules(hProcess, ctypes.byref(hmodule), ctypes.sizeof(hmodule), ctypes.byref(bytesRequired)):
 
 				ProcessesName = (ctypes.c_buffer(30))
-				tchar = ctypes.wintypes.WCHAR
 				if GetModuleBaseName(hProcess, hmodule, ctypes.byref(ProcessesName), ctypes.sizeof(ProcessesName)):
 					suc += 1
 
